@@ -16,13 +16,14 @@ interface Props {
     //     f1: string
     // }
     person: Person;
+    handleChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 interface TextNode {
     text: string;
 }
 
-const TextField: React.FC<Props> = ({ person, text }) => {
+const TextField: React.FC<Props> = ({ text, person, handleChange }) => {
     // const [ count, setCount ] = useState<number | null | undefined | string>(5);
     const [ count, setCount ] = useState<TextNode>({ text: 'hello'});
     // setCount({ text });
@@ -35,6 +36,7 @@ const TextField: React.FC<Props> = ({ person, text }) => {
             <input 
                 type="text" 
                 ref={inputRef}
+                onChange={handleChange}
             />
         </div>
     )
